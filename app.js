@@ -1,5 +1,3 @@
-// Basic mathematical functions
-
 function add(num1, num2) {
     return num1 + num2;
 };
@@ -27,3 +25,13 @@ function operate(operation, num1, num2) {
         return divide(num1, num2);
     }
 };
+
+// Populate display
+const display = document.querySelector('#display');
+
+const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            console.log(button.id);
+        });
+    });
