@@ -1,5 +1,5 @@
 function add(num1, num2) {
-    return num1 + num2;
+    return parseInt(num1) + parseInt(num2);
 };
 
 function subtract(num1, num2) {
@@ -16,21 +16,28 @@ function divide(num1, num2) {
 
 function operate(operation, num1, num2) {
     if (operation === 'add') {
-        return add(num1, num2);
+        return display.textContent = add(num1, num2);
     } else if (operation === 'subtract') {
-        return subtract(num1, num2);
+        return display.textContent = subtract(num1, num2);
     } else if (operation === 'multiply') {
-        return multiply(num1, num2);
+        return display.textContent = multiply(num1, num2);
     } else if (operation === 'divide') {
-        return divide(num1, num2);
+        return display.textContent = divide(num1, num2);
     }
 };
 
 // Populate display
+const displayValue = [];
+
+let operation = '';
+let num1 = 0;
+let num2 = 0;
+
+
 const display = document.querySelector('#display');
 
-const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
+const numButtons = document.querySelectorAll('.number');
+    numButtons.forEach((button) => {
         button.addEventListener('click', () => {
             const clickedButton = button.id;
             populateDisplay(clickedButton);
@@ -39,24 +46,65 @@ const buttons = document.querySelectorAll('button');
 
 function populateDisplay(clickedButton) {
     if (clickedButton === 'one') {
-        display.textContent = 1;
+        displayValue.push(1);
     } else if (clickedButton === 'two') {
-        display.textContent = 2;
+        displayValue.push(2);
     } else if (clickedButton === 'three') {
-        display.textContent = 3;
+        displayValue.push(3);
     } else if (clickedButton === 'four') {
-        display.textContent = 4;
+        displayValue.push(4);
     } else if (clickedButton === 'five') {
-        display.textContent = 5;
+        displayValue.push(5);
     } else if (clickedButton === 'six') {
-        display.textContent = 6;
+        displayValue.push(6);
     } else if (clickedButton === 'seven') {
-        display.textContent = 7;
+        displayValue.push(7);
     } else if (clickedButton === 'eight') {
-        display.textContent = 8;
+        displayValue.push(8);
     } else if (clickedButton === 'nine') {
-        display.textContent = 9;
+        displayValue.push(9);
     } else if (clickedButton === 'zero') {
-        display.textContent = 0;
+        displayValue.push(0);
     } 
+    return display.textContent = parseInt(displayValue.join(''));
 };
+
+const adds = document.querySelector('#add');
+    adds.addEventListener('click', () => {
+        num1 = parseInt(display.textContent);
+        displayValue.length = 0
+        operation = adds.id;
+    });
+
+const subtracts = document.querySelector('#subtract');
+    subtracts.addEventListener('click', () => {
+        num1 = parseInt(display.textContent);
+        displayValue.length = 0
+        operation = subtracts.id;
+    });
+
+const multiplies = document.querySelector('#multiply');
+    multiplies.addEventListener('click', () => {
+        num1 = parseInt(display.textContent);
+        displayValue.length = 0
+        operation = multiplies.id;
+    });
+
+const divides = document.querySelector('#divide');
+    divides.addEventListener('click', () => {
+        num1 = parseInt(display.textContent);
+        displayValue.length = 0
+        operation = divides.id;
+    });
+
+const equals = document.querySelector('#equals');
+    equals.addEventListener('click', () => {
+        num2 = parseInt(display.textContent);
+        operate(operation, num1, num2);
+    });
+
+const clearBtn = document.querySelector('#clear');
+    clearBtn.addEventListener('click', () => {
+        displayValue.length = 0;
+        display.textContent = 0;
+    });
