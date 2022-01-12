@@ -107,4 +107,6 @@ const clearBtn = document.querySelector('#clear');
     clearBtn.addEventListener('click', () => {
         displayValue.length = 0;
         display.textContent = 0;
+        num1 = 0;
+        num2 = 0;
     });
