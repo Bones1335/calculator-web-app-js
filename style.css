@@ -18,7 +18,8 @@ h1 {
 }
 
 #buttons {
-    display: flex
+    display: flex;
+    flex: 1;
 }
 
 #numbers {
@@ -30,4 +31,5 @@ h1 {
 #operators {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
