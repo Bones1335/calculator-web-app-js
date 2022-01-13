@@ -1,13 +1,28 @@
-h1 {
-    color: red;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin: 100px;*/
+    background-color: navy;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 #calc-container {
     display: flex;
     border: 2px solid black;
+    border-radius: 5%;
     flex-direction: column;
     width: 400px;
     height: 500px;
+    background-color: #d8d6d6;
 }
 
 #display {
@@ -15,21 +30,52 @@ h1 {
     padding: 10px;
     margin: 10px;
     font-size: 30px;
+    background-color: grey;
+    color: white;
+    border-radius: 10px;
+}
+
+button {
+    border: 1px solid navy;
+    border-radius: 100%;
+    box-shadow: 2px 2px navy;
 }
 
 #buttons {
     display: flex;
     flex: 1;
+    justify-content: center;
 }
 
 #numbers {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    padding: 10px;
+    margin: 10px;
+    gap: 10px;
+    width: 50%;
 }
 
 #operators {
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+#add,
+#subtract,
+#multiply,
+#divide,
+#equals,
+#clear {
+    padding: 10px;
+}
+
+
+#clear {
+    background-color: red;
 }
